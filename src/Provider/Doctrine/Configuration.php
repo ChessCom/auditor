@@ -162,6 +162,10 @@ class Configuration implements ConfigurationInterface
      */
     public function getEntities(): array
     {
+        if ($this->entities) {
+            return $this->entities;
+        }
+        
         if (null !== $this->provider) {
             /** @var AuditingService[] $auditingServices */
             $auditingServices = $this->provider->getAuditingServices();
